@@ -9,16 +9,20 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+
     var homeView : HomeViewHeader?
+   
     
     let tableView : UITableView = {
-        let table = UITableView()
-        
+        let table = UITableView(frame: .zero, style: .insetGrouped)
         table.translatesAutoresizingMaskIntoConstraints = false
-        table.register(UITableViewCell.self,
-                       forCellReuseIdentifier: "cell")
         table.register(HomeViewHeader.self,
-                       forHeaderFooterViewReuseIdentifier: "header")
+                       forHeaderFooterViewReuseIdentifier: HomeViewHeader.identifier)
+        table.register(PosterTableViewCell.self,
+                       forCellReuseIdentifier:PosterTableViewCell.identifier)
+        table.register(HomeViewFooter.self,
+                       forHeaderFooterViewReuseIdentifier: HomeViewFooter.identifier)
+        table.backgroundColor = colorScreenBackground
         return table
     }()
     
@@ -60,20 +64,38 @@ extension HomeViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return 5
+        return 1
        }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PosterTableViewCell.identifier, for: indexPath) as? PosterTableViewCell else {
+            return UITableViewCell()
+        }
         return cell
        }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? HomeViewHeader
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeViewHeader.identifier) as? HomeViewHeader
         return header
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeViewFooter.identifier) as? HomeViewFooter
+        return footer
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 100
     }
 

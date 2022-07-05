@@ -8,14 +8,15 @@
 import UIKit
 
 class HomeViewHeader: UITableViewHeaderFooterView {
-    static let identifier = "header"
+   
+    static let identifier = "HomeViewHeader"
     
     lazy var title: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false 
         title.text = "What do you want to watch?"
         title.font = UIFont(name: "Poppins-SemiBold", size: 18)
-        title.textColor = .black
+        title.textColor = colorTextDefault
         return title
     }()
     
