@@ -11,10 +11,7 @@ class PosterTableViewCell: UITableViewCell {
     
     static let identifier = "PosterTableViewCell"
     
-    var poster = [UIImage.init(named: "movie-1"),
-                  UIImage.init(named: "movie-2"),
-                  UIImage.init(named: "movie-3")
-    ]
+    var movies : [MovieModel] = []
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -24,6 +21,8 @@ class PosterTableViewCell: UITableViewCell {
         collectionView.showsHorizontalScrollIndicator = false
         layout.itemSize = CGSize(width: 140, height: 200)
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 12
+
         return collectionView
     }()
     
@@ -48,12 +47,20 @@ class PosterTableViewCell: UITableViewCell {
         self.collectionView.dataSource = self
             
     }
+    
+    public func updateMovies(movies: [MovieModel]){
+        self.movies = movies
+//        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 }
 
 extension PosterTableViewCell:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
@@ -61,7 +68,20 @@ extension PosterTableViewCell:UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.posterImage.image = poster[indexPath.row]
+
+        DispatchQueue.global().async { [weak self] in
+            guard let posterPath = self?.movies[indexPath.row].poster_path else {return}
+            guard let url = URL(string:"https://image.tmdb.org/t/p/w500\(posterPath)") else {
+                return
+            }
+            if let data = try? Data(contentsOf: url){
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        cell.posterImage.image = image
+                    }
+                }
+            }
+        }
 
         return cell 
     }

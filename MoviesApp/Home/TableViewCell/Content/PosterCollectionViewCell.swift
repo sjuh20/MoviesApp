@@ -13,8 +13,9 @@ class PosterCollectionViewCell: UICollectionViewCell {
     
      var posterImage: UIImageView = {
         let posterImage = UIImageView()
-         
-         posterImage.frame.size = CGSize(width: 115, height: 167)
+
+//         posterImage.frame.size = CGSize(width: 115, height: 167)
+         posterImage.layer.cornerRadius = 16
         return posterImage
     }()
     
@@ -30,6 +31,9 @@ class PosterCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         posterImage.frame = contentView.bounds
+        posterImage.backgroundColor = colorScreenBackground
+        posterImage.layer.cornerRadius = 16
+        posterImage.layer.masksToBounds = true
     }
     
     

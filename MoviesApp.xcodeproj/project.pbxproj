@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		707065672874A1DD00E2E880 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 707065662874A1DD00E2E880 /* Poppins-Medium.ttf */; };
+		7070656B2874B95C00E2E880 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7070656A2874B95C00E2E880 /* MovieModel.swift */; };
+		7070656D2874BD8000E2E880 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7070656C2874BD8000E2E880 /* Networking.swift */; };
 		70EAD2BB28732780001DB974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EAD2BA28732780001DB974 /* AppDelegate.swift */; };
 		70EAD2BD28732780001DB974 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EAD2BC28732780001DB974 /* SceneDelegate.swift */; };
-		70EAD2BF28732780001DB974 /* ContenTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EAD2BE28732780001DB974 /* ContenTabBarController.swift */; };
+		70EAD2BF28732780001DB974 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EAD2BE28732780001DB974 /* HomeTabBarController.swift */; };
 		70EAD2C228732780001DB974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70EAD2C028732780001DB974 /* Main.storyboard */; };
 		70EAD2C428732781001DB974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70EAD2C328732781001DB974 /* Assets.xcassets */; };
 		70EAD2C728732781001DB974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70EAD2C528732781001DB974 /* LaunchScreen.storyboard */; };
@@ -47,10 +50,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		707065662874A1DD00E2E880 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		7070656A2874B95C00E2E880 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		7070656C2874BD8000E2E880 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		70EAD2B728732780001DB974 /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70EAD2BA28732780001DB974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70EAD2BC28732780001DB974 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		70EAD2BE28732780001DB974 /* ContenTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContenTabBarController.swift; sourceTree = "<group>"; };
+		70EAD2BE28732780001DB974 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		70EAD2C128732780001DB974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		70EAD2C328732781001DB974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70EAD2C628732781001DB974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,9 +104,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		707065632874978000E2E880 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				70EE14C92873938100113B51 /* HomeViewHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		707065642874978700E2E880 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				70EE14DE28747DA100113B51 /* PosterCollectionViewCell.swift */,
+				70EE14DB2874763A00113B51 /* PosterTableViewCell.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		707065652874979100E2E880 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				70EE14E02874877B00113B51 /* HomeViewFooter.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
 		70EAD2AE28732780001DB974 = {
 			isa = PBXGroup;
 			children = (
+				7070656C2874BD8000E2E880 /* Networking.swift */,
+				7070656A2874B95C00E2E880 /* MovieModel.swift */,
 				70EAD2B928732780001DB974 /* MoviesApp */,
 				70EAD2D028732781001DB974 /* MoviesAppTests */,
 				70EAD2DA28732781001DB974 /* MoviesAppUITests */,
@@ -128,7 +161,7 @@
 				70EE14C42873694900113B51 /* Fonts */,
 				70EAD2BA28732780001DB974 /* AppDelegate.swift */,
 				70EAD2BC28732780001DB974 /* SceneDelegate.swift */,
-				70EAD2BE28732780001DB974 /* ContenTabBarController.swift */,
+				70EAD2BE28732780001DB974 /* HomeTabBarController.swift */,
 				70EAD2C028732780001DB974 /* Main.storyboard */,
 				70EAD2C328732781001DB974 /* Assets.xcassets */,
 				70EAD2C528732781001DB974 /* LaunchScreen.storyboard */,
@@ -157,6 +190,7 @@
 		70EE14C42873694900113B51 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				707065662874A1DD00E2E880 /* Poppins-Medium.ttf */,
 				70EE14D72873A6FB00113B51 /* Poppins-Regular.ttf */,
 				70EE14CB287394A300113B51 /* Poppins-SemiBold.ttf */,
 				70EE14C52873695500113B51 /* Roboto-Medium.ttf */,
@@ -200,10 +234,9 @@
 		70EE14DD287476D800113B51 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				70EE14C92873938100113B51 /* HomeViewHeader.swift */,
-				70EE14DE28747DA100113B51 /* PosterCollectionViewCell.swift */,
-				70EE14DB2874763A00113B51 /* PosterTableViewCell.swift */,
-				70EE14E02874877B00113B51 /* HomeViewFooter.swift */,
+				707065652874979100E2E880 /* Footer */,
+				707065642874978700E2E880 /* Content */,
+				707065632874978000E2E880 /* Header */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -313,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70EE14CC287394A300113B51 /* Poppins-SemiBold.ttf in Resources */,
+				707065672874A1DD00E2E880 /* Poppins-Medium.ttf in Resources */,
 				70EE14C62873695500113B51 /* Roboto-Medium.ttf in Resources */,
 				70EAD2C728732781001DB974 /* LaunchScreen.storyboard in Resources */,
 				70EE14D82873A6FB00113B51 /* Poppins-Regular.ttf in Resources */,
@@ -345,9 +379,11 @@
 				70EAD2ED28734F3A001DB974 /* SearchViewController.swift in Sources */,
 				70EE14D4287399FE00113B51 /* Colors.swift in Sources */,
 				70EE14CA2873938100113B51 /* HomeViewHeader.swift in Sources */,
-				70EAD2BF28732780001DB974 /* ContenTabBarController.swift in Sources */,
+				7070656D2874BD8000E2E880 /* Networking.swift in Sources */,
+				70EAD2BF28732780001DB974 /* HomeTabBarController.swift in Sources */,
 				70EAD2BB28732780001DB974 /* AppDelegate.swift in Sources */,
 				70EAD2BD28732780001DB974 /* SceneDelegate.swift in Sources */,
+				7070656B2874B95C00E2E880 /* MovieModel.swift in Sources */,
 				70EAD2EF28734F49001DB974 /* WatchListViewController.swift in Sources */,
 				70EE14DC2874763A00113B51 /* PosterTableViewCell.swift in Sources */,
 				70EAD2EB28734F28001DB974 /* HomeViewController.swift in Sources */,

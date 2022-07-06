@@ -26,6 +26,12 @@ class HomeViewController: UIViewController {
         return table
     }()
     
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    
     func tableViewDelegate(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -44,6 +50,8 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
+    
+    
 
 }
 
@@ -74,6 +82,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PosterTableViewCell.identifier, for: indexPath) as? PosterTableViewCell else {
             return UITableViewCell()
         }
+        
+        Networking.sharedInstance.getTrendingMovies { movies in
+            cell.updateMovies(movies: movies.results)
+        }
+        
         return cell
        }
     
